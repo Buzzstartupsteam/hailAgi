@@ -9,6 +9,7 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
+      <div className=" border-[#18191B] border-4"></div>
       <Homepage2 />
       <div className=" border-[#18191B] border-4"></div>
       <Homepage3 />

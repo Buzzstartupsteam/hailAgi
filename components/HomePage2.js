@@ -2,75 +2,67 @@
 import Link from "next/link";
 // components/Homepage2.js
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const Homepage2 = () => {
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fadeInUp-animation");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -100px 0px" } // Adjust the rootMargin as needed to control when the animation triggers
-    );
-
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current);
-      }
-    };
-  }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row overflow-hidden relative gradient group space-x-2 ">
-      <div
-        ref={contentRef}
-        className="lg:w-1/2 lg:ml-10 text-center lg:text-left my-10 lg:my-32 px-5"
-      >
-        {/* Updated classes for responsiveness */}
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-black mb-4">
-          Make your products generate or summarize text
-        </h1>
-        <p className="text-base md:text-lg lg:text-lg text-black">
-          Our Command model can generate text quickly and accurately for a
-          variety of purposes. Whether you need product descriptions, blog
-          posts, or articles, Command can help you create high-quality content
-          that engages your audience. You can also use Command to create
-          concise, relevant, and customizable summaries of text and documents.
-          This makes it a powerful tool for businesses and individuals who need
-          to communicate effectively.
-        </p>
-        <button className="mt-6 bg-[#FFDAA9] cursor-pointer text-black font-semibold rounded-lg px-6 py-3 shadow-md hover:bg-[#ffa227]">
-          <Link href={"#"}>Try Playground</Link>
-        </button>
-      </div>
-      <div className="lg:w-1/2 relative items-center p-2">
-        <div
-          className="lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full lg:flex lg:items-center lg:justify-center"
-          style={{ pointerEvents: "none" }}
-        >
-          <div className="w-full max-w-lg mx-auto my-auto">
-            <video
-              autoPlay
-              loop
-              muted
-              className="w-full rounded-lg"
-              style={{ backgroundColor: "transparent" }}
-            >
-              <source src="/Q&A2.mp4" type="video/mp4" />
-              {/* Add other video formats here if needed */}
-              Your browser does not support the video tag.
-            </video>
-          </div>
+    <div className="background-div-color">
+      <h3 className="text-center text-2xl font-bold pt-4 text-black px-5">
+        Elevate Your LLM Infrastructure to New Heights
+      </h3>
+      <div className="flex flex-wrap justify-around px-4 pb-4 md:flex">
+        <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth py-4 m-2 flex flex-col items-center">
+          <Image src="/FineTuning.png" height={70} width={90} alt="" className="mb-4" />
+          <p className="text-center font-bold text-lg mb-2">Fine-Tuning Excellence</p>
+          <p className="text-justify">
+            Embark on a seamless journey with HailAGI, effortlessly uploading your data to achieve a robust endpoint.
+            Streamlined processes ensure efficiency in refining your models.
+          </p>
+        </div>
+        <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth py-4 p-4 m-2 flex flex-col items-center">
+          <Image src="/PrivacyCommitment.png" height={70} width={90} alt="" className="mb-4" />
+          <p className="text-center font-bold text-lg mb-2">Privacy Commitment</p>
+          <p className="text-justify">
+            At HailAGI, privacy is not merely a feature but a foundational
+            principle. Be assured, we prioritize the sanctity of your data, committing to its non-utilization
+            to uphold your privacy standards.
+          </p>
+        </div>
+        <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth py-4 p-4 m-2 flex flex-col items-center">
+          <Image src="/InferenceMastery.png" height={70} width={90} alt="" className="mb-4" />
+          <p className="text-center font-bold text-lg mb-2">Inference Mastery</p>
+          <p className="text-justify">
+            HailAGI's finely-tuned models are meticulously crafted to achieve
+            unparalleled performance, boasting a threefold speed enhancement over GPT-4 while
+            maintaining an unwavering commitment to superior quality.
+          </p>
+        </div>
+        <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth py-4 p-4 m-2 flex flex-col items-center">
+          <Image src="/SeamlessIntegration.png" height={70} width={90} alt="" className="mb-4" />
+          <p className="text-center font-bold text-lg mb-2">Seamless Integration</p>
+          <p className="text-justify">
+            Effortlessly integrate your current systems with langchain, llama-index,
+            and other platforms. HailAGI solutions are meticulously designed for compatibility, ensuring
+            a smooth transition and harmonious operation within your existing infrastructure.
+          </p>
+        </div>
+        <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth py-4 p-4 m-2 flex flex-col items-center">
+          <Image src="/ContinuousPreTraining.png" height={70} width={90} alt="" className="mb-4" />
+          <p className="text-center font-bold text-lg mb-2">Continuous Pre-Training Empowerment</p>
+          <p className="text-justify">
+            Unleash the boundless potential of your Language
+            Models (LLMs) with HailAGI. Seamlessly continue pre-training using domain-specific data,
+            books, or company documents, providing you the capability to refine and enhance LLMs
+            tailored to meet your specific needs at your fingertips.
+          </p>
+        </div>
+        <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth py-4 p-4 m-2 flex flex-col items-center">
+          <Image src="/AdaptiveScaling.png" height={70} width={90} alt="" className="mb-4" />
+          <p className="text-center font-bold text-lg mb-2">Adaptive Scaling</p>
+          <p className="text-justify">
+            HailAGI ensures effortless adjustments to meet evolving demands for your AI models, maintaining peak performance without compromise.
+          </p>
         </div>
       </div>
     </div>

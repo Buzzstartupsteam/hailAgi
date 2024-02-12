@@ -3,75 +3,57 @@ import Link from "next/link";
 // components/Homepage2.js
 import React, { useEffect, useRef } from "react";
 
+const templates = [
+  {
+    imageTemplate: "/RevolutionizingHuman-MachineInteraction.jpg",
+    title: "Revolutionizing Human-Machine Interaction",
+    description: "Pioneering Natural Language Processing, we revolutionize human-tech interaction. Expertise spans advanced chatbot creation, fostering intelligent dialogues, and nuanced sentiment analysis. Our precise language translation transcends global barriers, fostering seamless understanding. Immerse in a world where Language Models redefine human-computer synergy, shaping a boundaryless linguistic future.",
+  },
+  {
+    imageTemplate: "/AIVision.jpg",
+    title: "Revolutionizing AI Vision",
+    description: "Revolutionizing visual information processing, our AI Vision solutions, enriched by state-of-the-art techniques, decode image intricacies and elevate machines to heightened perceptual sophistication. From autonomous vehicles to medical diagnostics, our innovations redefine industries. Explore the future of visual intelligence with our cutting-edge solutions, advancing AI boundaries.",
+  },
+  {
+    imageTemplate: "/AIAudio.jpg",
+    title: "Unveiling the Future of AI Audio",
+    description: "Inception marks a paradigm shift in Audio AI, seamlessly blending the symphony of sound with technology's limitless potential. Beyond conventional limits, we reshape connections to sound, offering immersive experiences, pioneering speech recognition, and audio analytics. Embrace the fusion of sound and technology, as Inception unlocks limitless possibilities in AI Audio.",
+  },
+  {
+    imageTemplate: "/VastTextualVolumes.png",
+    title: "Effortlessly Manage Vast Textual Volumes",
+    description: "Navigating through extensive volumes of text, including documents, emails, FAQs, chat transcripts, records, and more, is made seamless with the assistance of HailAGI. Our capabilities extend beyond conventional boundaries, offering services such as editing, rewriting, summarizing, classifying, extracting structured data, conducting Q&A based on content, and more. Whatever your textual challenge, HailAGI is your comprehensive solution.",
+  },
+  {
+    imageTemplate: "/FosterGenuineConversation.jpg",
+    title: "Foster Genuine Conversations",
+    description: "With HailAGI, unlock the ability to engage in authentic, naturalistic dialogues. HailAGI seamlessly assumes various roles within a conversation, offering detailed information on specific roles, FAQs, and adeptly responding to common questions. Experience the art of meaningful, context-aware conversations with HailAGI at your service.",
+  },
+  {
+    imageTemplate: "/OptimizeEfficiency.png",
+    title: "Optimize Operational Efficiency",
+    description: "HailAGI is adept at automating diverse workflows, effortlessly executing basic instructions and logical scenarios. From formatting outputs to your exact specifications, seamlessly adhering to if-then statements, to conducting a series of intricate logical evaluations within a single prompt, HailAGI streamlines and enhances operational efficiency with precision.",
+  },
+
+]
+
 const Homepage3 = () => {
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fadeInUp-animation");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -100px 0px" } // Adjust the rootMargin as needed to control when the animation triggers
-    );
-
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
-    }
-
-    return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current);
-      }
-    };
-  }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row overflow-hidden relative gradientfeature3 group space-x-2">
-      <div className="lg:w-1/2 relative p-2">
-        <div
-          className="lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full lg:flex lg:items-center lg:justify-center"
-          style={{ pointerEvents: "none" }}
-        >
-          <div className="w-full max-w-lg mx-auto">
-            <video
-              autoPlay
-              loop
-              muted
-              className="w-full rounded-lg"
-              style={{ backgroundColor: "transparent" }}
-            >
-              <source src="/Q&A2.mp4" type="video/mp4" />
-              {/* Add other video formats here if needed */}
-              Your browser does not support the video tag.
-            </video>
+    <div className="background-div-color">
+      <h1 className='text-center text-2xl font-bold pt-4 text-black px-5'>HailAGI</h1>
+      <div className="flex flex-wrap justify-around pb-4 md:flex">
+        {templates.map((item, index) => (
+          <div className="w-full sm:w-full md:w-3/4 lg:w-customWidth m-2 py-4 flex flex-col items-center">
+            <img src={item.imageTemplate} alt="Your Image" className="w-full h-auto rounded mb-3" />
+            <p className="text-center font-bold text-lg mb-2">{item.title}</p>
+            <p className="text-justify">
+              {item.description}
+            </p>
           </div>
-        </div>
-      </div>
-      <div
-        ref={contentRef}
-        className="lg:w-1/2 lg:ml-10 text-center lg:text-left my-10 lg:my-32 px-5"
-      >
-        {/* Updated classes for responsiveness */}
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-black mb-4">
-          Make your products generate or summarize text
-        </h1>
-        <p className="text-base md:text-lg lg:text-lg text-black">
-          Our Command model can generate text quickly and accurately for a
-          variety of purposes. Whether you need product descriptions, blog
-          posts, or articles, Command can help you create high-quality content
-          that engages your audience. You can also use Command to create
-          concise, relevant, and customizable summaries of text and documents.
-          This makes it a powerful tool for businesses and individuals who need
-          to communicate effectively.
-        </p>
-        <button className="mt-6 bg-[#FFDAA9] cursor-pointer text-black font-semibold rounded-lg px-6 py-3 shadow-md hover:bg-[#ffa227]">
-          <Link href={"#"}>Try Playground</Link>
-        </button>
+        )
+        )
+        }
       </div>
     </div>
   );
